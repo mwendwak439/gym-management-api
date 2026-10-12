@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import authRoutes from "./routes/authRoutes";
+import memberRoutes from "./routes/memberRoutes";
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler";
 import { config } from "./config";
 
@@ -19,6 +20,8 @@ app.get("/health", (req, res) => {
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/members", memberRoutes);
+
 
 // 404 for unknown routes
 app.use(notFoundHandler);
